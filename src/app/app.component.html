@@ -1,0 +1,16 @@
+<button (click)= "toggleMonster()">Toggle Monster</button>
+<div id ="card-list">
+    <app-playing-card [monster]="monsters[selectedMonsterIndex]"/>
+
+</div>
+<!-- <div>
+    <app-search-bar (submit)="increaseCount()"
+    [search]="search"
+    (searchChange)="search = $event"/>
+    Search: {{search}} <br>
+    Click Count : {{count}}
+</div> -->
+<!-- <div id="card-list">
+    <app-playing-card />
+    <app-playing-card [my-monster] = "monster1"/>
+</div> -->
