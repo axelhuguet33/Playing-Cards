@@ -1,16 +1,13 @@
-<button (click)= "toggleMonster()">Toggle Monster</button>
-<div id ="card-list">
-    <app-playing-card [monster]="monsters[selectedMonsterIndex]"/>
+<app-search-bar [(search)]="search"></app-search-bar>
 
+<div id ="card-list">
+    @for (monster of filteredMonsters(); track monster) {
+    <app-playing-card [monster]="monster"/>
+    }
 </div>
-<!-- <div>
-    <app-search-bar (submit)="increaseCount()"
-    [search]="search"
-    (searchChange)="search = $event"/>
-    Search: {{search}} <br>
-    Click Count : {{count}}
-</div> -->
-<!-- <div id="card-list">
-    <app-playing-card />
-    <app-playing-card [my-monster] = "monster1"/>
-</div> -->
+
+@if(filteredMonsters().length === 0) {
+<div class="center">No monster found!</div>
+} @else {
+<div class="center">Found {{filteredMonsters().length}} monsters !</div>
+}

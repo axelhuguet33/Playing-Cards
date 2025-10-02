@@ -12,7 +12,7 @@ export interface IMonsterProperties {
 
 export const MonsterTypeProperties: {[key: string]: IMonsterProperties} = {
     [MonsterType.PLANT]: {
-        imageUrl: 'assets/img/plant.jpg',
+        imageUrl: 'assets/img/plant.png',
         color: '#4E8234'
     },
     [MonsterType.ELECTRIC]: {
