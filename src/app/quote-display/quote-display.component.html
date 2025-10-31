@@ -1,0 +1,29 @@
+<div class="quote-container">
+  <h2>🎯 Citations Aléatoires avec NgRx Effects</h2>
+  
+  <!-- ⏳ Affichage pendant le chargement -->
+  <div *ngIf="(quotesState$ | async)?.loading" class="loading">
+    <p>⏳ Chargement de la citation...</p>
+  </div>
+  
+  <!-- ❌ Affichage en cas d'erreur -->
+  <div *ngIf="(quotesState$ | async)?.error as error" class="error">
+    <p>❌ Erreur : {{ error }}</p>
+  </div>
+  
+  <!-- ✅ Affichage de la citation -->
+  <div *ngIf="(quotesState$ | async)?.quote as quote" class="quote-card">
+    <blockquote>
+      <p class="quote-text">"{{ quote.quote }}"</p>
+      <footer class="quote-author">— {{ quote.author }}</footer>
+    </blockquote>
+  </div>
+  
+  <!-- 🔘 Bouton pour charger une nouvelle citation -->
+  <button 
+    (click)="loadNewQuote()" 
+    [disabled]="(quotesState$ | async)?.loading"
+    class="load-button">
+    {{ (quotesState$ | async)?.loading ? 'Chargement...' : 'Nouvelle Citation 🎲' }}
+  </button>
+</div>
